@@ -1,9 +1,8 @@
-import sys, math
-
 from decimal import Decimal, getcontext
 
 
 from PySide2 import QtGui
+from PySide2 import QtWidgets
 
 
 
@@ -31,47 +30,29 @@ class CalculoJuros:
 		getcontext().prec = 28
 		
 		if self.valor == 0.0:
-			QtGui.QMessageBox.critical(None, "Erro: Valor Incorreto", "Por Favor Insira um valor Valido")
+			QtWidgets.QMessageBox.critical(None, "Erro: Valor Incorreto", "Por Favor Insira um valor Valido")
 			return
 		if self.juros == 0.0:
-			QtGui.QMessageBox.critical(None,"Erro: Valor Incorreto", "Por Favor Coloque os Juros")
+			QtWidgets.QMessageBox.critical(None,"Erro: Valor Incorreto", "Por Favor Coloque os Juros")
 			return
 			
 		juros = Decimal(self.juros) / Decimal(30)
-		
-		
-		
 		porcJuros = Decimal(juros) * Decimal(self.atraso)
-		
-		
-		
 		porcMulta = Decimal(self.valor) * Decimal(self.porcentagem(self.juros))
-		
-	
-		
 		valorJuros = Decimal(self.valor) * Decimal(self.porcentagem(porcJuros))
-		
-		
-		
 		valorMulta = Decimal(self.valor)  * Decimal(self.porcentagem(self.multa))
-		
-		
-		
 		total = Decimal(valorJuros) + Decimal(valorMulta)
-		
-	
-		
 		resultado = Decimal(total) + Decimal(self.valor)
 		
 		if model != None:
 		
-			itempcMulta = QtGui.QStandardItem(" %.2f porcento"  % porcMulta)
-			itempcJuros = QtGui.QStandardItem("%.2f porcento" % porcJuros)
+			itempcMulta = QtGui.QStandardItem(f"{porcMulta:.2f}%")
+			itempcJuros = QtGui.QStandardItem(f"{porcJuros:.2f}%")
 			
-			itemValorMulta = QtGui.QStandardItem("R$ %.2f "  % valorMulta)
-			itemValorJuros = QtGui.QStandardItem("R$ %.2f " % valorJuros)
+			itemValorMulta = QtGui.QStandardItem(f"R$ {valorMulta:.2f}")
+			itemValorJuros = QtGui.QStandardItem(f"R$ {valorJuros:.2f}")
 			
-			itemResultado  = QtGui.QStandardItem("R$ %.2f " % resultado)
+			itemResultado  = QtGui.QStandardItem(f"R$ {resultado:.2f}")
 			
 			
 			model.setItem(0,0,QtGui.QStandardItem("Porcentagem de Multa:"))
@@ -80,11 +61,11 @@ class CalculoJuros:
 			model.setItem(3,0, QtGui.QStandardItem("Valor de Juros:"))
 			model.setItem(4,0, QtGui.QStandardItem("Total:"))
 			
-			model.setItem(0,1,itempcMulta)
-			model.setItem(1,1,itempcJuros)
-			model.setItem(2,1,itemValorMulta)
-			model.setItem(3,1,itemValorJuros)
-			model.setItem(4,1,itemResultado)
+			model.setItem(0, 1, itempcMulta)
+			model.setItem(1, 1, itempcJuros)
+			model.setItem(2, 1, itemValorMulta)
+			model.setItem(3, 1, itemValorJuros)
+			model.setItem(4, 1, itemResultado)
 		
 		
 		

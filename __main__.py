@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 '''
 Created on 29/10/2012
 
@@ -48,34 +47,13 @@ class MainApp(QApplication):
 			
 			self.configInstance = Config.Config("config.cfg")
 			
-			
-			"""
-			self.config = self.configInstance.getConfig()
-			
-			print (self.config)
-			
-			if self.config["Round Values"] == "True":
-				#print "Sucesso"
-				self.window.acRoundValues.setChecked(True)
-				self.round = True
-			elif self.config["Round Values"] == "False":
-				self.window.acRoundValues.setChecked(False)
-				self.round = False
-			else:
-				self.window.acRoundValues.setChecked(False)
-				self.round = False
-			"""
+
 
 			self.isResultGenerated = False
-			
 			self.descontosWidget = DescontosWidget.DescontosWidget(self.window.descontos, self)
-			
 			self.JurosSimplesWidget =  JurosSimplesWidget.JurosSimplesWidget(self.window.jurossimples, self)
-			
 			self.calcularJurosWidget =  calculoJurosWidget.calculoJurosWidget(self.window.calcjuros)
-			
 			self.calcDataWidget = calcDataWidget.calcDataWidget(self.window.calcData,self)
-			
 			self.jurosComposto = None
 		
 			self.define()
@@ -144,7 +122,7 @@ class MainApp(QApplication):
 		
 		if (months == 0):
 			#print "Erro Mes Negativo ou igual a Zero"
-			QMessageBox.critical(None, "Erro: Data Invalida", "A Data Do In�cio � a mesma do fim")
+			QMessageBox.critical(None, "Erro: Data Inválida", "Por favor selecione a data corretamente")
 			return
 			
 		elif(months < 0):
@@ -167,11 +145,6 @@ class MainApp(QApplication):
 		model.setHorizontalHeaderItem(0, QtGui.QStandardItem("Capital"))
 		model.setHorizontalHeaderItem(1, QtGui.QStandardItem("Juros"))
 		model.setHorizontalHeaderItem(2, QtGui.QStandardItem("Montante"))
-		
-		
-		
-		
-		
 		self.jurosComposto.gerarTabela(model)
 		
 		
@@ -204,9 +177,9 @@ class MainApp(QApplication):
 		for linha in self.jurosComposto.tabela:
 			
 			
-			capital ="%.2f" % linha[0]
-			juros = "%.2f" % linha [1]
-			montante = "%.2f" % linha[2]
+			capital = f"{linha[0]:.2f}"
+			juros = f"{linha[1]:.2f}"
+			montante = f"{linha[2]:.2f}"
 			
 			data += capital + " " + juros + " " + montante + "\n"
 			
@@ -249,8 +222,8 @@ class MainApp(QApplication):
 		self.configInstance.writecfg(self.window.acRoundValues.isChecked())
 		self.configInstance.read()
 		
-		self.config = self.configInstance.getConfig()
-		self.round = self.window.acRoundValues.isChecked()
+		#self.config = self.configInstance.getConfig()
+		self.round = False
 	
 	@QtCore.Slot()	
 	def quit(self):

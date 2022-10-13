@@ -8,7 +8,7 @@ import PySide2.QtXml
 
 from PySide2 import QtCore
 from PySide2 import QtGui
-from PySide2.QtWidgets import QWidget
+from PySide2.QtWidgets import QWidget,QMessageBox
 
 from modules import JurosSimples
 
@@ -40,7 +40,7 @@ class JurosSimplesWidget(QWidget):
 		
 		
 		if data <= 0:
-			QtGui.QMessageBox.critical(None, "Erro: Data Invalida", "O Campo data e invalido, Por Favor Tente colocar um valor corretamente")
+			QMessageBox.critical(None, "Erro: Data Invalida", "O Campo data e invalido, Por Favor Tente colocar um valor corretamente")
 			return
 			
 			 

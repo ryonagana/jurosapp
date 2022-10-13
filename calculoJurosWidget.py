@@ -33,9 +33,9 @@ class calculoJurosWidget(QWidget):
 		multa = self.widget.cp_multa.value()
 		
 		
-		self.calcJuros = calculoJuros.CalculoJuros(valor,juros,atraso,multa)
+		self.calcJuros = calculoJuros.CalculoJuros(valor, juros, atraso, multa)
 		
-		model = QtGui.QStandardItemModel(3,2,self)
+		model = QtGui.QStandardItemModel(3, 2, self)
 		
 		model.setHorizontalHeaderItem(0, QtGui.QStandardItem("Descricao"))
 		model.setHorizontalHeaderItem(1, QtGui.QStandardItem("Valores"))
@@ -44,7 +44,7 @@ class calculoJurosWidget(QWidget):
 		
 		self.widget.cp_tabela.setModel(model)
 		
-		print (valor,juros,atraso,multa)
+		print (valor, juros, atraso, multa)
 		
 	
 	def connect(self):
