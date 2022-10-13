@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>440</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>550</width>
+    <height>440</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Aplicativo de Calculos de Juros:</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>531</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QTabWidget" name="tbCalculos">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <property name="elideMode">
+        <enum>Qt::ElideNone</enum>
+       </property>
+       <property name="tabsClosable">
+        <bool>false</bool>
+       </property>
+       <property name="movable">
+        <bool>false</bool>
+       </property>
+       <widget class="QWidget" name="tabJurosComposto">
+        <attribute name="title">
+         <string>Juros Compostos</string>
+        </attribute>
+        <widget class="QWidget" name="gridLayoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>10</y>
+           <width>527</width>
+           <height>341</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="1" column="0">
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="text">
+               <string>Insira Valor:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QDoubleSpinBox" name="cpValor">
+              <property name="maximum">
+               <double>999999.989999999990687</double>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QDateEdit" name="cpDataFim"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QDateEdit" name="cpDataInicio"/>
+            </item>
+            <item row="1" column="3">
+             <widget class="QDoubleSpinBox" name="cpJuros">
+              <property name="maximum">
+               <double>100.000000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="text">
+               <string>Data de início:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_3">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="text">
+               <string>Data de Vencimento:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="label_4">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="text">
+               <string>Insira a % de Juros:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="4" column="0">
+           <widget class="QTableView" name="cpTabela"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QToolButton" name="btCalculaJuros">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Calcular</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lbFormula">
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>550</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAqruivo">
+    <property name="title">
+     <string>Arquivo</string>
+    </property>
+    <addaction name="acSair"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuSobre">
+    <property name="title">
+     <string>Ajuda</string>
+    </property>
+    <addaction name="acSobre"/>
+    <addaction name="separator"/>
+    <addaction name="acQT"/>
+   </widget>
+   <widget class="QMenu" name="menuOp_es_2">
+    <property name="title">
+     <string>Opções</string>
+    </property>
+    <addaction name="acRoundValues"/>
+    <addaction name="separator"/>
+    <addaction name="acCalcData"/>
+   </widget>
+   <addaction name="menuAqruivo"/>
+   <addaction name="menuOp_es_2"/>
+   <addaction name="menuSobre"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="acSalvarResultado">
+   <property name="text">
+    <string>Salvar Resultado</string>
+   </property>
+  </action>
+  <action name="acSair">
+   <property name="text">
+    <string>Sair</string>
+   </property>
+  </action>
+  <action name="acCalcular">
+   <property name="text">
+    <string>Calcular</string>
+   </property>
+  </action>
+  <action name="acSobre">
+   <property name="text">
+    <string>Sobre..</string>
+   </property>
+  </action>
+  <action name="acQT">
+   <property name="text">
+    <string>QT License</string>
+   </property>
+  </action>
+  <action name="acSalvarValores">
+   <property name="text">
+    <string>Salvar Valores</string>
+   </property>
+  </action>
+  <action name="acLerValores">
+   <property name="text">
+    <string>Ler Valores</string>
+   </property>
+  </action>
+  <action name="actionJuros_Simples">
+   <property name="text">
+    <string>Juros Simples</string>
+   </property>
+  </action>
+  <action name="actionFRC">
+   <property name="text">
+    <string>FRC</string>
+   </property>
+  </action>
+  <action name="actionCalculo_de_Boletos">
+   <property name="text">
+    <string>Calculo de Boletos</string>
+   </property>
+  </action>
+  <action name="acRoundValues">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Arredondar Valores</string>
+   </property>
+  </action>
+  <action name="acCalcData">
+   <property name="text">
+    <string>Calculadora de Datas</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
